@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+<link rel="stylesheet" href="to-do.css">
+<head>
+  <meta charset="utf-8">
+  <title>Personal To Do List</title>
 
+</head>
+<body>
+  <div id="myDIV" class="header">
+    <h2>My To Do List</h2>
+  </div>
+  <div class= "list_div">
+    <ol id="myOL">
+    </ol>
+    <input type="text" id="myInput" placeholder="Add Item To List..."/>
+    <span onclick="newElement()" class="addBtn">
+
+      <!--round plus sign, white background -->
+      <a href="JavaScript:go()"><img src="button.png" width = 40px, height= 40px></a></span>
+      <!--round green with plus sign -->
+      <!-- <a href="JavaScript:go()"><img src="multigreenButton.png" width = 40px, height= 40px></a></span> -->
+      <!-- round white plus sign with dark background -->
+      <!-- <a href="JavaScript:go()"><img src="filledbutton.png" width = 40px, height= 40px></a></span> -->
+    </div>
+    <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="to-do.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </body>
-</html>
+
+
+
+    </html>
