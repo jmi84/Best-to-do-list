@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/to-do-list.css">
+    <title>Do This List</title>
+    <h1>Let's Do This <span style="color:#FFF842">List</span></h1>
   </head>
+
   <body>
 
+    <div id="myDIV" class="container">
+      <input type="text" id="myInput" placeholder="Your next task:">
+    </div>
+
+    <div id="myDIV" class="container2">
+      <span onclick="newElement()" class="bubbly-button">Add It!</span>
+    </div>
+
+    <ul id="myUL" class="container">
+      <li>Walk the dogs</li>
+      <li>Get birthday card</li>
+      <li>Fix space ship</li>
+      <li class="checked">Completed item. NICE. Click to un-check.</li>
+      <li>Call Elon back</li>
+      <li>Love this list and tell everyone</li>
+    </ul>
+
   </body>
+  <script src="js/javascript.js"></script>
 </html>
