@@ -1,10 +1,113 @@
-<!DOCTYPE html>
 <html lang="en" dir="ltr">
+
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Do This List</title>
+    <h1>Let's Do This <span style="color:#FFF842">List</span></h1>
   </head>
+
   <body>
+    <!-- Add task field and button.-->
+    <div id="myDIV" class="container">
+      <input type="text" id="myInput" placeholder="Your next task:">
+    </div>
+
+    <div id="myDIV" class="container2">
+      <span onclick="newElement()" class="bubbly-button">Add It!</span>
+    </div>
+
+    <ul id="myUL" class="container">
+      <li>Walk dogs</li>
+      <li>Get birthday card</li>
+      <li>Fix space ship</li>
+      <li class="checked">Completed item. NICE. Click to un-check.</li>
+      <li>Call Elon back</li>
+      <li>Love this list and tell everyone</li>
+    </ul>
+
+    <script>
+    // I'm having issues linking external javascript files. So until that's fixed, the script is here below.
+
+    // Create a "close" button and append it to each list item
+    var myNodelist = document.getElementsByTagName("LI");
+    var i;
+    for (i = 0; i < myNodelist.length; i++) {
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      myNodelist[i].appendChild(span);
+    }
+
+    // Click on a close button to hide the current list item
+    var close = document.getElementsByClassName("close");
+    var i;
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function() {
+        var div = this.parentElement;
+        div.style.display = "none";
+      }
+    }
+
+    // Add a "checked" symbol when clicking on a list item
+    var list = document.querySelector('ul');
+    list.addEventListener('click', function(ev) {
+      if (ev.target.tagName === 'LI') {
+        ev.target.classList.toggle('checked');
+      }
+    }, false);
+
+    // Create a new list item when clicking on the "Add It!" button
+    function newElement() {
+      var li = document.createElement("li");
+      var inputValue = document.getElementById("myInput").value;
+      var t = document.createTextNode(inputValue);
+      li.appendChild(t);
+      if (inputValue === '') {
+        alert("Please enter a task first!");
+      } else {
+        document.getElementById("myUL").appendChild(li);
+      }
+      document.getElementById("myInput").value = "";
+
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      li.appendChild(span);
+
+      for (i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+          var div = this.parentElement;
+          div.style.display = "none";
+        }
+      }
+    }
+
+    // Animation for "Add It!"" button. See: https://codepen.io/nourabusoud/pen/ypZzMM
+
+    var animateButton = function(e) {
+      e.preventDefault;
+      //reset animation
+      e.target.classList.remove('animate');
+
+      e.target.classList.add('animate');
+      setTimeout(function(){
+        e.target.classList.remove('animate');
+      },700);
+    };
+
+    var bubblyButtons = document.getElementsByClassName("bubbly-button");
+
+    for (var i = 0; i < bubblyButtons.length; i++) {
+      bubblyButtons[i].addEventListener('click', animateButton, false);
+    }
+
+
+    // Click on boost button to move the list item to the top
+
+
+    </script>
 
   </body>
 </html>
