@@ -27,9 +27,56 @@ for (i = 0; i < close.length; i++) {
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
+ ev.target.classList.toggle('checked');
+ if (ev.target.classList === 'checked') {
+var confetti = [];
+function setup(){
+    createCanvas(window.innerWidth, window.innerHeight);
+
+    rectMode(RADIUS);
+
+    colorMode(HSB);
+
+    for(var i = 0; i < 100; i++){
+      confetti.push(new Confetti());
+    }
+}
+
+function draw(){
+  background(color(255));
+
+  for(var i = 0; i < confetti.length; i++){
+    confetti[i].move();
+    confetti[i].display();
   }
+
+}
+
+function Confetti(){
+  this.size = random(5);
+  this.color = color(random(255),255,255);
+  this.speed = 250;
+
+
+  this.x = -random(width);
+  this.y = -random(height);
+
+  this.move = function(){
+     this.x += this.size;
+     this.y += this.size;
+
+  }
+
+  this.display = function(){
+    fill(this.color);
+    rect(this.x,this.y,this.size,this.size);
+
+  }
+}
+}
+}
 }, false);
+
 
 // Create a new list item when clicking on the "Add It!" button
 function newElement() {
